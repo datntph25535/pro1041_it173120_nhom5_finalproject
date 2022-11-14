@@ -5,10 +5,14 @@
  */
 package Service.Interface;
 
+import Model.Account;
+
 /**
  *
  * @author PC
  */
-public class DangNhapInterface {
-    
+public interface DangNhapInterface {
+
+    Account getAccount(String u, String p);
+
 }

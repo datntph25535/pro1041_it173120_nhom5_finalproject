@@ -47,7 +47,7 @@ public class FrameDangNhap extends javax.swing.JFrame {
 
     boolean check() {
         if (txtUser.getText().trim().equals("")) {
-            JOptionPane.showMessageDialog(this, "nhập username!");
+            JOptionPane.showMessageDialog(this, "nhập username");
             return false;
         }
         if (txtPass.getText().trim().equals("")) {

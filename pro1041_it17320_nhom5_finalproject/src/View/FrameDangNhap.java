@@ -86,13 +86,13 @@ public class FrameDangNhap extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("F:\\JV3\\GiaoDienDangNhap\\user.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("F:\\pro1041_it173120_nhom5_finalproject\\pro1041_it17320_nhom5_finalproject\\image\\user.png")); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("F:\\JV3\\GiaoDienDangNhap\\password.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("F:\\pro1041_it173120_nhom5_finalproject\\pro1041_it17320_nhom5_finalproject\\image\\password.png")); // NOI18N
 
         jLabel5.setText("Quên mật khẩu?");
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin\\Downloads\\logo-cua-hang-may-tinh (9).jpg")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("F:\\pro1041_it173120_nhom5_finalproject\\pro1041_it17320_nhom5_finalproject\\image\\logo-cua-hang-may-tinh (9).jpg")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,14 +123,14 @@ public class FrameDangNhap extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtPass)
                                         .addComponent(btnDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)

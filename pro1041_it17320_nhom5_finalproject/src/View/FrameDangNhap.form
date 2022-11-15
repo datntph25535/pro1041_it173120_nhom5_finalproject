@@ -57,7 +57,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="114" max="32767" attributes="0"/>
+              <EmptySpace pref="113" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,7 +66,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtUser" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -115,14 +115,14 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="F:\JV3\GiaoDienDangNhap\user.png"/>
+          <Image iconType="2" name="F:\pro1041_it173120_nhom5_finalproject\pro1041_it17320_nhom5_finalproject\image\user.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="F:\JV3\GiaoDienDangNhap\password.png"/>
+          <Image iconType="2" name="F:\pro1041_it173120_nhom5_finalproject\pro1041_it17320_nhom5_finalproject\image\password.png"/>
         </Property>
       </Properties>
     </Component>
@@ -134,7 +134,7 @@
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Admin\Downloads\logo-cua-hang-may-tinh (9).jpg"/>
+          <Image iconType="2" name="F:\pro1041_it173120_nhom5_finalproject\pro1041_it17320_nhom5_finalproject\image\logo-cua-hang-may-tinh (9).jpg"/>
         </Property>
       </Properties>
     </Component>

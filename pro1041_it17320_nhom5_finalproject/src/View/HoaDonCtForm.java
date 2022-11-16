@@ -305,11 +305,13 @@ public class HoaDonCtForm extends javax.swing.JFrame {
             return;
         }
         Integer kq = ser.insertHDCT(hdct);
-        if (kq > -1) {
+        if (kq <= -1) {
+
+            JOptionPane.showMessageDialog(this, "Thêm thất bại");
+
             return;
         } else {
             JOptionPane.showMessageDialog(this, "Thêm thành công");
-            JOptionPane.showMessageDialog(this, "Thêm thất bại");
 
         }
         loadTable();

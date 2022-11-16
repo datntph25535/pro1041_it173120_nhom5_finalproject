@@ -17,7 +17,7 @@ public interface AccountInterface {
     
     String add(Account ac);
     
-    String update(String UserName , Account ac);
+    String update(Account ac,String UserName  );
     
     String delete(String UserName);
 }

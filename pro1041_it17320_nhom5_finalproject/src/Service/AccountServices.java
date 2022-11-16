@@ -32,8 +32,8 @@ public class AccountServices implements AccountInterface{
     }
 
     @Override
-    public String update(String UserName, Account ac) {
-       boolean updaAccount = account.update(UserName, ac);
+    public String update( Account ac,String UserName) {
+       boolean updaAccount = account.update(ac, UserName);
         if (updaAccount){
             return "Sua thanh cong";
         }else{

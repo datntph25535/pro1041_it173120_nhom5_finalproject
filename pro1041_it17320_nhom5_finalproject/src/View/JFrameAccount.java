@@ -18,9 +18,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class JFrameAccount extends javax.swing.JFrame {
 
-    private DefaultTableModel dtm = new DefaultTableModel();
-    List<AccountViewModel> list;
-    private AccountInterface ac = new AccountServices();
+    DefaultTableModel dtm = new DefaultTableModel();
+    List<AccountViewModel> listAcc;
+     AccountInterface ac = new AccountServices();
     
     public JFrameAccount() {
         initComponents();
@@ -28,10 +28,10 @@ public class JFrameAccount extends javax.swing.JFrame {
         tblAcc.setModel(dtm);
         String [] acc = {"User name","Pass word","Role"};
         dtm.setColumnIdentifiers(acc);
-        showData(list);
+        showData(ac.getAll());
         
     }
-    private  void showData(List<AccountViewModel> list){
+      void showData(List<AccountViewModel> list){
         dtm.setRowCount(0);
         for (AccountViewModel a : list) {
             dtm.addRow(a.toDataRow());
@@ -75,7 +75,6 @@ public class JFrameAccount extends javax.swing.JFrame {
         btnadd = new javax.swing.JButton();
         btnUp = new javax.swing.JButton();
         btnDele = new javax.swing.JButton();
-        btnnew = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,10 +115,8 @@ public class JFrameAccount extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Danh sach", jPanel1);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/user.png"))); // NOI18N
         jLabel1.setText("User name :");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/password.png"))); // NOI18N
         jLabel2.setText("Pass word :");
 
         jLabel3.setText("Role :");
@@ -132,10 +129,18 @@ public class JFrameAccount extends javax.swing.JFrame {
         });
 
         btnUp.setText("Update");
+        btnUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpActionPerformed(evt);
+            }
+        });
 
         btnDele.setText("Delete");
-
-        btnnew.setText("New");
+        btnDele.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -160,10 +165,8 @@ public class JFrameAccount extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnUp)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnDele)
-                        .addGap(27, 27, 27)
-                        .addComponent(btnnew)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                        .addComponent(btnDele)))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,9 +190,8 @@ public class JFrameAccount extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnadd)
                     .addComponent(btnUp)
-                    .addComponent(btnDele)
-                    .addComponent(btnnew))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(btnDele))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cap nhat", jPanel2);
@@ -224,13 +226,42 @@ public class JFrameAccount extends javax.swing.JFrame {
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
         try {
             JOptionPane.showMessageDialog(this, ac.add(getData()));
-            list = ac.getAll();
-            showData(list);
+            listAcc = ac.getAll();
+            showData(listAcc);
+            reset();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "loi nut add");
         }
     }//GEN-LAST:event_btnaddActionPerformed
 
+    private void btnUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpActionPerformed
+         try {
+             
+            JOptionPane.showMessageDialog(this, ac.update(getData(), txtUserName.getText()));
+            listAcc = ac.getAll();
+            showData(listAcc);
+            reset();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "loi nut update");
+        }
+    }//GEN-LAST:event_btnUpActionPerformed
+
+    private void btnDeleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleActionPerformed
+        try {
+             
+            JOptionPane.showMessageDialog(this, ac.delete(txtUserName.getText()));
+            listAcc = ac.getAll();
+            showData(listAcc);
+            reset();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "loi nut delete");
+        }
+    }//GEN-LAST:event_btnDeleActionPerformed
+    void reset(){
+         txtPass.setText("");
+       txtRole.setText("");
+       txtUserName.setText("");
+    }
     /**
      * @param args the command line arguments
      */
@@ -270,7 +301,6 @@ public class JFrameAccount extends javax.swing.JFrame {
     private javax.swing.JButton btnDele;
     private javax.swing.JButton btnUp;
     private javax.swing.JButton btnadd;
-    private javax.swing.JButton btnnew;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

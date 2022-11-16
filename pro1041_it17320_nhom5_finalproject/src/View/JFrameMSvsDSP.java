@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ViewModel;
+package View;
 
 import Model.MauSac;
 import Model.dongSP;
@@ -10,6 +10,8 @@ import Service.Interface.dongSpInterface;
 import Service.Interface.mauSacInterface;
 import Service.dongSPServices;
 import Service.mauSacServices;
+import ViewModel.dongSpViewModel;
+import ViewModel.mauSacViewModel;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

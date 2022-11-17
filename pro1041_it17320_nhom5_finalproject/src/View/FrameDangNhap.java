@@ -29,7 +29,6 @@ public class FrameDangNhap extends javax.swing.JFrame {
 
     public FrameDangNhap() {
         initComponents();
-
         btnDangNhap.setBackground(new Color(0, 250, 154));
         this.getContentPane().setBackground(new Color(230, 230, 250));
         setIcona();

@@ -42,6 +42,7 @@ public class FrameDangNhap extends javax.swing.JFrame {
 
         lb_user.setIcon(user);
         lb_pw.setIcon(pw);
+        
         lb_logo.setIcon(logo);
     }
 

@@ -22,7 +22,11 @@ public class KhuyenMaiRepo {
         try {
 
             Connection conn = JDBCUtil.getConnection();
-            String sql = "INSERT INTO (Ma,Ten,PhanTramKM) VALUES(?,?,?)";
+            String sql = "INSERT INTO [dbo].[KhuyenMai]\n" +
+"           ([Ma]\n" +
+"           ,[Ten]\n" +
+"           ,[PhanTramKM])\n" +
+"      VALUES(?,?,?)";
 
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, km.getMa());

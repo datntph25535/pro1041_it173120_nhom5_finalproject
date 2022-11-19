@@ -23,8 +23,10 @@ import java.util.logging.Logger;
  */
 public class HoaDonRepo {
 
-    public List<HoaDonViewModel> all() {
-        List<HoaDonViewModel> listHD = new ArrayList<>();
+
+    public List<HoaDon> all() {
+        List<HoaDon> listHD = new ArrayList<>();
+
         try {
             Connection conn = JDBCUtil.getConnection();
             String sql = "Select Id,Ma,NgayThanhToan,NgayNhan,NgayTao,DiaChi,Sdt,TinhTrang From HoaDon";
@@ -40,7 +42,8 @@ public class HoaDonRepo {
                 String dchi = rs.getString("DiaChi");
                 String sdt = rs.getString("Sdt");
                 String tt = rs.getString("TinhTrang");
-                HoaDonViewModel hdv = new HoaDonViewModel(id, ma, ngaytt, ngaynhan, ngaytao, dchi, sdt, tt);
+
+                HoaDon hdv = new HoaDon(id, ma, ngaytt, ngaynhan, ngaytao, dchi, sdt, tt);
                 listHD.add(hdv);
             }
             return listHD;

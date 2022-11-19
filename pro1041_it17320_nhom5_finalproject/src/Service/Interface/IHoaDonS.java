@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface IHoaDonS {
 
-    List<HoaDonViewModel> getAll();
+    List<HoaDon> getAll();
 
     Integer insertHD(HoaDon hd);
 

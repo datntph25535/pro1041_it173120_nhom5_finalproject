@@ -19,9 +19,6 @@ public class JDBCUtil {
 
     public static Connection getConnection() {
 
-
-        if (conn == null) {
-
         if (JDBCUtil.conn == null) {
 
             try {

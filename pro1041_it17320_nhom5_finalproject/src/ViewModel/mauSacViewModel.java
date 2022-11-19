@@ -49,4 +49,11 @@ public class mauSacViewModel {
     public Object[] toDataRow(){
         return new Object[]{idMS,MaMS,tenMS};
     }
+
+    @Override
+    public String toString() {
+        return tenMS + "-" + idMS;
+    }
+    
+    
 }

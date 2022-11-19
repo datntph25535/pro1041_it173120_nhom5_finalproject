@@ -22,7 +22,7 @@ public class mauSacRepo {
                 + "      ,[Ma]\n"
                 + "      ,[Ten]\n"
                 + "  FROM [dbo].[MauSac] ";
-        try ( Connection con = JDBCUtil.getConnection();  PreparedStatement pstm = con.prepareStatement(sql);) {
+        try (Connection con = JDBCUtil.getConnection(); PreparedStatement pstm = con.prepareStatement(sql);) {
             ResultSet rs = pstm.executeQuery();
             List<mauSacViewModel> listMS = new ArrayList<>();
             while (rs.next()) {
@@ -43,7 +43,7 @@ public class mauSacRepo {
                 + "           ([Ma]\n"
                 + "           ,[Ten])\n"
                 + "     VALUES (?,?)";
-        try ( Connection con = JDBCUtil.getConnection();  PreparedStatement pstm = con.prepareStatement(SQL)) {
+        try (Connection con = JDBCUtil.getConnection(); PreparedStatement pstm = con.prepareStatement(SQL)) {
             pstm.setObject(1, ms.getMaMS());
             pstm.setObject(2, ms.getTenMS());
 
@@ -67,7 +67,7 @@ public class mauSacRepo {
                 + "   SET [Ma] = ?\n"
                 + "      ,[Ten] =?\n"
                 + " WHERE id = ?";
-        try ( Connection con = JDBCUtil.getConnection();  PreparedStatement pstm = con.prepareStatement(sql)) {
+        try (Connection con = JDBCUtil.getConnection(); PreparedStatement pstm = con.prepareStatement(sql)) {
 
             pstm.setObject(1, ms.getMaMS());
             pstm.setObject(2, ms.getTenMS());
@@ -83,7 +83,7 @@ public class mauSacRepo {
         int check = 0;
         String sql = "DELETE FROM [dbo].[MauSac]\n"
                 + "      WHERE id = ?";
-        try ( Connection con = JDBCUtil.getConnection();  PreparedStatement ps = con.prepareStatement(sql)) {
+        try (Connection con = JDBCUtil.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setObject(1, id);
             check = ps.executeUpdate();
         } catch (Exception e) {

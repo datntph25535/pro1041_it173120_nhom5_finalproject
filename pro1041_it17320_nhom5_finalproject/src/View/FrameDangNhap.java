@@ -40,10 +40,7 @@ public class FrameDangNhap extends javax.swing.JFrame {
         Icon pw = new ImageIcon("/F:/pro1041_it173120_nhom5_finalproject/pro1041_it17320_nhom5_finalproject/src/image/password.png");
         Icon logo = new ImageIcon("/F:/pro1041_it173120_nhom5_finalproject/pro1041_it17320_nhom5_finalproject/src/image/logo.jpg");
 
-        Icon user = new ImageIcon("C:\\Users\\Huy PC\\Documents\\GitHub\\pro1041_it173120_nhom5_finalproject\\pro1041_it17320_nhom5_finalproject\\src\\image\\user.png");
-        Icon pw = new ImageIcon("C:\\Users\\Huy PC\\Documents\\GitHub\\pro1041_it173120_nhom5_finalproject\\pro1041_it17320_nhom5_finalproject\\src\\image\\password.png");
-        Icon logo = new ImageIcon("C:\\Users\\Huy PC\\Documents\\GitHub\\pro1041_it173120_nhom5_finalproject\\pro1041_it17320_nhom5_finalproject\\src\\image\\logo.jpg");
-
+      
 
         lb_user.setIcon(user);
         lb_pw.setIcon(pw);

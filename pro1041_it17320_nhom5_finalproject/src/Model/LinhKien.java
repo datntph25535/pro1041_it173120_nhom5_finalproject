@@ -47,6 +47,11 @@ public class LinhKien {
     public void setTenLinhKien(String tenLinhKien) {
         this.tenLinhKien = tenLinhKien;
     }
+
+    @Override
+    public String toString() {
+        return tenLinhKien + "-" + id;
+    }
     
     
     

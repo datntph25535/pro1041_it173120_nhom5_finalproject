@@ -48,14 +48,14 @@ public class ChiTietLinhKienRepo {
     public void insert(ChiTietLinhKien ctlk) {
         try {
             Connection conn = JDBCUtil.getConnection();
-            String sql = "insert into ChiTietLinhKien (IdLK, IdHDCT,SoLuongTon, GiaNhap, GiaBan, MoTa)";
+            String sql = "insert into ChiTietLinhKien (SoLuongTon, GiaNhap, GiaBan, MoTa,IdLK,IdHDCT) values(?,?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, ctlk.getIdLK());
-            ps.setString(2, ctlk.getIdHDCT());
-            ps.setInt(3, ctlk.getSoLuongTon());
-            ps.setDouble(4, ctlk.getGiaNhap());
-            ps.setDouble(5, ctlk.getGiaBan());
-            ps.setString(6, ctlk.getMoTa());
+            ps.setString(5, ctlk.getIdLK());
+            ps.setString(6, ctlk.getIdHDCT());
+            ps.setInt(1, ctlk.getSoLuongTon());
+            ps.setDouble(2, ctlk.getGiaNhap());
+            ps.setDouble(3, ctlk.getGiaBan());
+            ps.setString(4, ctlk.getMoTa());
             ps.execute();
         } catch (SQLException ex) {
             Logger.getLogger(ChiTietLinhKienRepo.class.getName()).log(Level.SEVERE, null, ex);
@@ -87,12 +87,16 @@ public class ChiTietLinhKienRepo {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, idLK);
             ps.setString(2, idHDCT);
-           
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ChiTietLinhKienRepo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    
+    public static void main(String[] args) {
+        ChiTietLinhKien ctlk = new ChiTietLinhKien("44875619-074B-4010-BF5E-90B455DFCBA8", "", 13, 11, 2003, "aa");
+        new ChiTietLinhKienRepo().insert(ctlk);
     }
 
 }

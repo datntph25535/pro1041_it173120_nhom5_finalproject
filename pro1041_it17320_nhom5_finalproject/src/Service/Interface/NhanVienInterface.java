@@ -5,21 +5,10 @@
  */
 package Service.Interface;
 
-import Model.NhanVien;
-import java.util.ArrayList;
-
 /**
  *
  * @author PC
  */
 public interface NhanVienInterface {
-    ArrayList<NhanVien> getList();
     
-    void insert(NhanVien nv);
-    
-    void delete(String id);
-    
-    void update(String id, NhanVien nv);
-    
-    NhanVien search(String ma);
 }

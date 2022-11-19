@@ -5,21 +5,10 @@
  */
 package Service.Interface;
 
-import Model.ChucVu;
-import java.util.ArrayList;
-
 /**
  *
  * @author PC
  */
 public interface ChucVuInterface {
-    ArrayList<ChucVu> getList();
     
-    void insert(ChucVu cv);
-    
-    void delete(String id);
-    
-    void update(String id, ChucVu cv);
-    
-    ChucVu search(String ma);
 }

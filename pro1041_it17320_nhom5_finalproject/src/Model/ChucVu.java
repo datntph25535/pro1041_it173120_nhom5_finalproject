@@ -51,6 +51,5 @@ public class ChucVu {
     public String toString() {
         return id;
     }
-    
-    
+     
 }

@@ -414,7 +414,6 @@ public class FrameKhachHang extends javax.swing.JFrame {
                 txt_ma.setText(kh.getMa());
                 txt_hoTen.setText(kh.getHoTen());
                 txt_email.setText(kh.getEmail());
-                //txt_ngaySinh.setText();
                 txt_thanhPho.setText(kh.getThanhPho());
                 if (kh.getGioiTinh().equals("Nam")) {
                     rd_nam.setSelected(true);

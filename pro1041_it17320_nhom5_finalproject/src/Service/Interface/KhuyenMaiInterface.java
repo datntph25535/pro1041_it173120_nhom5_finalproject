@@ -5,21 +5,19 @@
  */
 package Service.Interface;
 
-import Model.KhachHang;
+import Model.KhuyenMai;
 import java.util.ArrayList;
 
 /**
  *
- * @author PC
+ * @author DELL
  */
-public interface KhachHangInterface {
-    ArrayList<KhachHang> getList();
+public interface KhuyenMaiInterface {
+    ArrayList<KhuyenMai> getListKM();
     
-    void insert(KhachHang kh);
+    void insert(KhuyenMai km);
+    
+    void update(String id,KhuyenMai km);
     
     void delete(String id);
-    
-    void update(String id, KhachHang kh);
-    
-    KhachHang searchMa(String ma);
 }

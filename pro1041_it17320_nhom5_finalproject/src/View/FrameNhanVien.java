@@ -55,7 +55,6 @@ public class FrameNhanVien extends javax.swing.JFrame {
 
     public boolean checkEmail() {
         Matcher matcher = Pattern.compile(P_EMAIL).matcher(txt_email.getText());
-        
         if (!matcher.matches()) {
             JOptionPane.showMessageDialog(this, "Email sai định dạng");
             return false;

@@ -7,21 +7,22 @@ package Model;
 
 /**
  *
- * @author PC
+ * @author DELL
  */
-public class ChucVu {
-    
+public class KhuyenMai {
     private String id;
     private String ma;
     private String ten;
+    private String phanTramKM;
 
-    public ChucVu() {
+    public KhuyenMai() {
     }
 
-    public ChucVu(String id, String ma, String ten) {
+    public KhuyenMai(String id, String ma, String ten, String phanTramKM) {
         this.id = id;
         this.ma = ma;
         this.ten = ten;
+        this.phanTramKM = phanTramKM;
     }
 
     public String getId() {
@@ -48,9 +49,13 @@ public class ChucVu {
         this.ten = ten;
     }
 
-    @Override
-    public String toString() {
-        return ma;
+    public String getPhanTramKM() {
+        return phanTramKM;
     }
-     
+
+    public void setPhanTramKM(String phanTramKM) {
+        this.phanTramKM = phanTramKM;
+    }
+    
+    
 }

@@ -7,6 +7,8 @@ package Service.Interface;
 
 import Model.Account;
 
+import Repository.DangNhapRepo;
+
 /**
  *
  * @author PC
@@ -14,5 +16,7 @@ import Model.Account;
 public interface DangNhapInterface {
 
     Account getAccount(String u, String p);
+
+
 
 }

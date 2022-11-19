@@ -49,7 +49,7 @@ public class ChucVu {
 
     @Override
     public String toString() {
-        return id;
+        return ma;
     }
     
     

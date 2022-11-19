@@ -10,14 +10,15 @@ package Model;
  * @author DELL
  */
 public class NhaCungCap {
-   private String id;
-   private String maNcc;
-   private String ten;
-   private String email;
-   private String sdt;
-   private String diaChi;
-   private String thanhPho;
-   private String quocGia;
+
+    private String id;
+    private String maNcc;
+    private String ten;
+    private String email;
+    private String sdt;
+    private String diaChi;
+    private String thanhPho;
+    private String quocGia;
 
     public NhaCungCap() {
     }
@@ -96,6 +97,10 @@ public class NhaCungCap {
     public void setQuocGia(String quocGia) {
         this.quocGia = quocGia;
     }
-   
-   
+
+    @Override
+    public String toString() {
+        return ten + "-" + id;
+    }
+
 }

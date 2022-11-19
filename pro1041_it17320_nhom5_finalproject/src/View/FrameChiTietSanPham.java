@@ -9,10 +9,22 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import Model.SanPham;
 import Model.ChiTietSanPham;
+import Model.MauSac;
+import Model.NhaCungCap;
 import Service.ChiTietSanPhamService;
+import Service.Interface.ChiTietSanPhaminterface;
+import Service.Interface.NhaCungCapInterface;
 import Service.Interface.SanPhamInterface;
+import Service.Interface.dongSpInterface;
+import Service.Interface.mauSacInterface;
+import Service.NhaCungCapService;
 import Service.SanPhamService;
+import Service.dongSPServices;
+import Service.mauSacServices;
+import ViewModel.dongSpViewModel;
+import ViewModel.mauSacViewModel;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Admin
@@ -23,35 +35,62 @@ public class FrameChiTietSanPham extends javax.swing.JFrame {
      * Creates new form FrameChiTietSanPham
      */
     DefaultComboBoxModel dfcb = new DefaultComboBoxModel();
-    DefaultTableModel dftb ;
+    DefaultTableModel dftb;
     SanPhamInterface qlsp = new SanPhamService();
-    ChiTietSanPhamService qlctsp = new ChiTietSanPhamService();
+    ChiTietSanPhaminterface qlctsp = new ChiTietSanPhamService();
+    mauSacInterface qlms = new mauSacServices();
+    dongSpInterface qldsp = new dongSPServices();
+    NhaCungCapInterface qlncc = new NhaCungCapService();
+
     public FrameChiTietSanPham() {
         initComponents();
-        addCB();
-        dftb=new DefaultTableModel();
+        addCBSP();
+//        addCBMS();
+        addCBNCC();
+//        addCBDSP();
+        dftb = new DefaultTableModel();
         loadTable();
     }
-    
-    void loadTable(){
-        dftb=new DefaultTableModel();
+
+    void loadTable() {
+        dftb = new DefaultTableModel();
         dftb = (DefaultTableModel) tb.getModel();
         dftb.setRowCount(0);
-        for(ChiTietSanPham sp: qlctsp.getList()){
+        for (ChiTietSanPham sp : qlctsp.getList()) {
             dftb.addRow(new Object[]{
-                sp.getId(), sp.getGiaNhap(), sp.getGiaBan(), sp.getRam(), sp.getCpu(), sp.getSerialNumber(), sp.getCardMang(), sp.getKichThuoc(), 
+                sp.getId(), sp.getGiaNhap(), sp.getGiaBan(), sp.getRam(), sp.getCpu(), sp.getSerialNumber(), sp.getCardMang(), sp.getKichThuoc(),
                 sp.getManHinh(), sp.getCongKetNoi(), sp.getSoLuongTon()
             });
         }
     }
-    
-    
-    
-    void addCB(){
-        
+
+    void addCBSP() {
+
         dfcb = (DefaultComboBoxModel) cbSP.getModel();
-        for(SanPham sp : qlsp.getAll()){
+        for (SanPham sp : qlsp.getAll()) {
             dfcb.addElement(sp);
+        }
+    }
+
+    void addCBMS() {
+
+        dfcb = (DefaultComboBoxModel) cbMS.getModel();
+        for (mauSacViewModel ms : qlms.getAll()) {
+            dfcb.addElement(ms);
+        }
+    }
+
+    void addCBDSP() {
+        dfcb = (DefaultComboBoxModel) cbDSP.getModel();
+        for (dongSpViewModel dsp : qldsp.getAll()) {
+            dfcb.addElement(dsp);
+        }
+    }
+
+    void addCBNCC() {
+        dfcb = (DefaultComboBoxModel) cbNCC.getModel();
+        for (NhaCungCap ncc : qlncc.getListNcc()) {
+            dfcb.addElement(ncc);
         }
     }
 
@@ -353,12 +392,12 @@ public class FrameChiTietSanPham extends javax.swing.JFrame {
         txtManHinh.setText(tb.getValueAt(row, 8).toString());
         txtKetNoi.setText(tb.getValueAt(row, 9).toString());
         txtSoLuongTon.setText(tb.getValueAt(row, 10).toString());
-        
+
     }//GEN-LAST:event_tbMouseClicked
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-        
+
         double gianhap = Double.parseDouble(txtGiaNhap.getText());
         double giaban = Double.parseDouble(txtGiaBan.getText());
         String ram = txtRam.getText();
@@ -409,7 +448,7 @@ public class FrameChiTietSanPham extends javax.swing.JFrame {
         qlctsp.delete(id);
         JOptionPane.showMessageDialog(this, "xóa thành công");
         loadTable();
-        
+
     }//GEN-LAST:event_btnXoaActionPerformed
 
     /**

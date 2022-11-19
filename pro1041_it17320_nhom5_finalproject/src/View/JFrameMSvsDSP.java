@@ -509,7 +509,6 @@ try {
             JOptionPane.showMessageDialog(this, dsp1.delete(selectIDDSP));
            listDSP = dsp1.getAll();
             showDataDong(listDSP);
-            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Loi nut update");
             e.printStackTrace();

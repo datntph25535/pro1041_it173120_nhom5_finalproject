@@ -41,22 +41,11 @@ public class ChiTietSanPhamRepo {
                 String kichThuoc = rs.getString("KichThuoc");
                 String manHinh = rs.getString("ManHinh");
                 String congKetNoi = rs.getString("CongKetNoi");
-//                String idSP = rs.getString("IdSP");
-//                String idNCC = rs.getString("IdNCC");
-//                String idMS = rs.getString("IdMS");
-//                String idDSP = rs.getString("IdDSP");
-                ChiTietSanPham ctsp = new ChiTietSanPham();
-                ctsp.setId(id);
-                ctsp.setGiaNhap(giaNhap);
-                ctsp.setGiaBan(giaBan);
-                ctsp.setSoLuongTon(slton);
-                ctsp.setRam(ram);
-                ctsp.setCpu(cpu);
-                ctsp.setSerialNumber(serialNumber);
-                ctsp.setCardMang(cardMang);
-                ctsp.setKichThuoc(kichThuoc);
-                ctsp.setManHinh(manHinh);
-                ctsp.setCongKetNoi(congKetNoi);
+                String idSP = rs.getString("IdSP");
+                String idNCC = rs.getString("IdNCC");
+                String idMS = rs.getString("IdMS");
+                String idDSP = rs.getString("IdDSP");
+                ChiTietSanPham ctsp = new ChiTietSanPham(id, giaNhap, giaBan, slton, ram, cpu, serialNumber, cardMang, kichThuoc, manHinh, congKetNoi, idSP, idNCC, idMS, idDSP);
                 list.add(ctsp);
             }
         } catch (SQLException ex) {

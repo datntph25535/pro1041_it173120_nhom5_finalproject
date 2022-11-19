@@ -62,14 +62,14 @@ public class AccountRepo {
 
     }
 
-    public boolean update( Account ac,String UserName) {
+    public boolean update(Account ac, String UserName) {
         int check = 0;
-        String sql = "UPDATE [dbo].[Account]\n" +
-"   SET [PassWord] = ?\n" +
-"      ,[Role] = ?\n" +
-" WHERE  UserName = ?";
+        String sql = "UPDATE [dbo].[Account]\n"
+                + "   SET [PassWord] = ?\n"
+                + "      ,[Role] = ?\n"
+                + " WHERE  UserName = ?";
         try ( Connection con = JDBCUtil.getConnection();  PreparedStatement pstm = con.prepareStatement(sql)) {
-           
+
             pstm.setObject(1, ac.getPassword());
             pstm.setObject(2, ac.getRole());
             pstm.setObject(3, UserName);
@@ -92,5 +92,5 @@ public class AccountRepo {
         }
         return check > 0;
     }
-   
+
 }

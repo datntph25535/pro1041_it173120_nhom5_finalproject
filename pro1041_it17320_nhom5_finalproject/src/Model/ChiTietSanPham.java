@@ -30,6 +30,11 @@ public class ChiTietSanPham {
     public ChiTietSanPham() {
     }
 
+    public ChiTietSanPham(String id) {
+        this.id = id;
+    }
+    
+
     public ChiTietSanPham(String id, double giaNhap, double giaBan, int soLuongTon, String ram, String cpu, String serialNumber, String cardMang, String kichThuoc, String manHinh, String congKetNoi, String idSP, String idNCC, String idMS, String idDSP) {
         this.id = id;
         this.giaNhap = giaNhap;

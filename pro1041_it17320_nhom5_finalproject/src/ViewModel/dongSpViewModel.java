@@ -45,7 +45,7 @@ public class dongSpViewModel {
     public void setTenDSP(String tenDSP) {
         this.tenDSP = tenDSP;
     }
-    public Object[] toDataRow(){
+    public Object[] toDataRowDSP(){
         return new Object[]{idDSP,MaDSP,tenDSP};
     }
 }

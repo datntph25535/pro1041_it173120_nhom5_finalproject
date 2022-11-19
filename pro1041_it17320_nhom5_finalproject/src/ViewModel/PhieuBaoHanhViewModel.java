@@ -1,17 +1,16 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model;
+package ViewModel;
 
 import java.util.Date;
 
 /**
  *
- * @author DELL
+ * @author Administrator
  */
-public class PhieuBaoHanh {
+public class PhieuBaoHanhViewModel {
     private String id;
     private String ma;
     private Date ngayBH;
@@ -20,10 +19,10 @@ public class PhieuBaoHanh {
     private Date thoiGianBH;
     private String tenNguoiNhan;
 
-    public PhieuBaoHanh() {
+    public PhieuBaoHanhViewModel() {
     }
 
-    public PhieuBaoHanh(String id, String ma, Date ngayBH, Date ngayMuaHang, String diaChi, Date thoiGianBH, String tenNguoiNhan) {
+    public PhieuBaoHanhViewModel(String id, String ma, Date ngayBH, Date ngayMuaHang, String diaChi, Date thoiGianBH, String tenNguoiNhan) {
         this.id = id;
         this.ma = ma;
         this.ngayBH = ngayBH;
@@ -31,15 +30,8 @@ public class PhieuBaoHanh {
         this.diaChi = diaChi;
         this.thoiGianBH = thoiGianBH;
         this.tenNguoiNhan = tenNguoiNhan;
-        
     }
 
-    public PhieuBaoHanh(String id) {
-        this.id = id;
-    }
-    
-
-   
     public String getId() {
         return id;
     }
@@ -96,5 +88,7 @@ public class PhieuBaoHanh {
         this.tenNguoiNhan = tenNguoiNhan;
     }
     
-    
+    public Object[] toDataRow(){
+        return new Object[]{id,  ma,  ngayBH, ngayMuaHang, diaChi,  thoiGianBH,  tenNguoiNhan};
+    }
 }

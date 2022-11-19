@@ -5,6 +5,7 @@
  */
 package ViewModel;
 
+import Model.ChiTietSanPham;
 import Model.HoaDon;
 
 /**
@@ -15,13 +16,21 @@ public class HoaDonCTViewModel {
 
     private String id;
     private HoaDon hd;
-//    private ChiTietSanPham ctsp;
+    private ChiTietSanPham ctsp;
 //    private KhuyenMai km;
     private int soLuong;
     private double donGia;
     private double tienKM;
 
     public HoaDonCTViewModel() {
+    }
+
+    public ChiTietSanPham getCtsp() {
+        return ctsp;
+    }
+
+    public void setCtsp(ChiTietSanPham ctsp) {
+        this.ctsp = ctsp;
     }
 
     public String getId() {

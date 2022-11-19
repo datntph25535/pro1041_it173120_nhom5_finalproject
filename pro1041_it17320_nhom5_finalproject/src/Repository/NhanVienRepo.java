@@ -41,7 +41,7 @@ public class NhanVienRepo {
             ps.setString(11, nv.getTrangThai());
             String maCV = null;
             if(nv.getCv() != null){
-                maCV = nv.getCv().getMa();
+                maCV = nv.getCv().getId();
             }
             ps.setString(10, maCV);
             ps.execute();
@@ -79,7 +79,7 @@ public class NhanVienRepo {
             ps.setString(11, nv.getTrangThai());
             String maCV = null;
             if(nv.getCv() != null){
-                maCV = nv.getCv().getMa();
+                maCV = nv.getCv().getId();
             }
             ps.setString(10, maCV);
             ps.setString(12, id);
@@ -112,7 +112,7 @@ public class NhanVienRepo {
                 String trangThai = rs.getString(12);
                 
                 ChucVu cv = new ChucVu();
-                cv.setMa(maCV);
+                cv.setId(maCV);
                 NhanVien nv = new NhanVien(id, ma, hoTen, ngaySinh, gioiTinh, cmnd, sdt, email, diaChi, matKhau, cv, trangThai);
                 listNV.add(nv);
             }
@@ -142,7 +142,7 @@ public class NhanVienRepo {
                 String idChucVu = rs.getString("IdChucVu");
                 String trangThai = rs.getString("TrangThai");
                 ChucVu cv = new ChucVu();
-                cv.setMa(idChucVu);
+                cv.setId(idChucVu);
                 NhanVien nv = new NhanVien(id, ma, hoTen, ngaySinh, gioiTinh, cmnd, sdt, email, diaChi, matKhau, cv, trangThai);
                 return nv;
             }

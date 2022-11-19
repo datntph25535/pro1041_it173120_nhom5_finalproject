@@ -5,21 +5,21 @@
  */
 package Service.Interface;
 
-import Model.ChucVu;
+import Model.KhachHang;
 import java.util.ArrayList;
 
 /**
  *
  * @author PC
  */
-public interface ChucVuInterface {
-    ArrayList<ChucVu> getList();
+public interface KhachHangInterface {
+    ArrayList<KhachHang> getList();
     
-    void insert(ChucVu cv);
+    void insert(KhachHang kh);
     
     void delete(String id);
     
-    void update(String id, ChucVu cv);
+    void update(String id, KhachHang kh);
     
-    ChucVu search(String ma);
+    KhachHang searchMa(String ma);
 }

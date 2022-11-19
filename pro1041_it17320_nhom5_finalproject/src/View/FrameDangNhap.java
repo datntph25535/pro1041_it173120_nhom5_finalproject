@@ -163,10 +163,8 @@ public class FrameDangNhap extends javax.swing.JFrame {
             Account account = qldn.getAccount(user, pass);
             if (account == null) {
                 JOptionPane.showMessageDialog(this, "sai tài khoản hoặc mật khẩu!");
-
             } else if (account.getRole().equals("nhanvien")) {
                 JOptionPane.showMessageDialog(this, "đăng nhập với tư cách nhân viên");
-
             } else {
                 JOptionPane.showMessageDialog(this, "đăng nhập với tư cách quản lý");
             }

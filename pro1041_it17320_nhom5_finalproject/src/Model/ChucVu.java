@@ -10,6 +10,7 @@ package Model;
  * @author PC
  */
 public class ChucVu {
+    
     private String id;
     private String ma;
     private String ten;

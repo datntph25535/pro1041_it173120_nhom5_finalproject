@@ -5,10 +5,13 @@
  */
 package View;
 
+import Model.ChiTietSanPham;
 import Model.HoaDon;
 import Model.HoaDonChiTiet;
+import Service.ChiTietSanPhamService;
 import Service.HoaDonCTService;
 import Service.HoaDonService;
+import Service.Interface.ChiTietSanPhaminterface;
 import Service.Interface.IHoaDonCT;
 import Service.Interface.IHoaDonS;
 import ViewModel.HoaDonCTViewModel;
@@ -28,6 +31,7 @@ public class HoaDonCtForm extends javax.swing.JFrame {
     private DefaultComboBoxModel defaultComboBoxModel;
     private IHoaDonCT ser;
     private IHoaDonS serhd;
+    private ChiTietSanPhaminterface ctSer;
 
     /**
      * Creates new form HoaDonCtForm
@@ -38,9 +42,11 @@ public class HoaDonCtForm extends javax.swing.JFrame {
         defaultComboBoxModel = new DefaultComboBoxModel();
         defaultTableModel = new DefaultTableModel();
         this.loadTable();
+        ctSer = new ChiTietSanPhamService();
         serhd = new HoaDonService();
 
         this.loadComboboxHD();
+        this.loadComboboxCTSP();
 
     }
 
@@ -50,17 +56,26 @@ public class HoaDonCtForm extends javax.swing.JFrame {
         defaultTableModel.setRowCount(0);
         for (HoaDonCTViewModel hdview : ser.getList()) {
             defaultTableModel.addRow(new Object[]{
-                hdview.getId(), hdview.getHd().getMa(), hdview.getSoLuong(), hdview.getDonGia()
+                hdview.getId(), hdview.getHd(), hdview.getCtsp(), hdview.getSoLuong(), hdview.getDonGia()
             });
         }
 
     }
 
+    public void loadComboboxCTSP() {
+        DefaultComboBoxModel cb = new DefaultComboBoxModel();
+        cb = (DefaultComboBoxModel) cbCTSP.getModel();
+        List<ChiTietSanPham> list = this.ctSer.getList();
+        for (ChiTietSanPham sanPham : list) {
+            cbCTSP.addItem(sanPham);
+        }
+    }
+
     public void loadComboboxHD() {
         defaultComboBoxModel = new DefaultComboBoxModel();
         defaultComboBoxModel = (DefaultComboBoxModel) cbMaHD.getModel();
-        List<HoaDonViewModel> list = this.serhd.getAll();
-        for (HoaDonViewModel hoaDon : list) {
+        List<HoaDon> list = this.serhd.getAll();
+        for (HoaDon hoaDon : list) {
             cbMaHD.addItem(hoaDon);
         }
     }
@@ -68,8 +83,8 @@ public class HoaDonCtForm extends javax.swing.JFrame {
     public HoaDonChiTiet getForrmData() {
         String soluong = txtSoLuong.getText().trim();
         String donGia = txtDonGia.getText().trim();
-        HoaDonViewModel hd = (HoaDonViewModel) cbMaHD.getSelectedItem();
-
+        HoaDon hd = (HoaDon) cbMaHD.getSelectedItem();
+        ChiTietSanPham ct = (ChiTietSanPham) cbCTSP.getSelectedItem();
         if (soluong.length() == 0
                 || donGia.length() == 0) {
             JOptionPane.showMessageDialog(this, "Không để trống");
@@ -99,7 +114,8 @@ public class HoaDonCtForm extends javax.swing.JFrame {
             return null;
         }
         HoaDonChiTiet hdct = new HoaDonChiTiet();
-
+        hdct.setHd(hd);
+        hdct.setCtsp(ct);
         hdct.setSoLuong(sLuong);
         hdct.setDonGia(dongia);
         return hdct;
@@ -121,9 +137,11 @@ public class HoaDonCtForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtSoLuong = new javax.swing.JTextField();
         txtDonGia = new javax.swing.JTextField();
-        cbMaHD = new javax.swing.JComboBox<HoaDonViewModel>();
+        cbMaHD = new javax.swing.JComboBox<HoaDon>();
         jLabel5 = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        cbCTSP = new javax.swing.JComboBox<ChiTietSanPham>();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbCTHD = new javax.swing.JTable();
@@ -149,6 +167,8 @@ public class HoaDonCtForm extends javax.swing.JFrame {
 
         lblId.setText("_");
 
+        jLabel6.setText("IdCTSP");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -156,6 +176,7 @@ public class HoaDonCtForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3)
@@ -165,8 +186,9 @@ public class HoaDonCtForm extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(txtDonGia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                         .addComponent(txtSoLuong, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbMaHD, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbCTSP, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(175, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -180,7 +202,11 @@ public class HoaDonCtForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(cbMaHD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(cbCTSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -195,13 +221,13 @@ public class HoaDonCtForm extends javax.swing.JFrame {
 
         tbCTHD.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "IdHDCT", "Mã", "Số lượng", "Đơn giá"
+                "IdHDCT", "Mã", "IdCTSP", "Số lượng", "Đơn giá"
             }
         ));
         tbCTHD.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -210,9 +236,6 @@ public class HoaDonCtForm extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tbCTHD);
-        if (tbCTHD.getColumnModel().getColumnCount() > 0) {
-            tbCTHD.getColumnModel().getColumn(1).setHeaderValue("Mã");
-        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -363,16 +386,23 @@ public class HoaDonCtForm extends javax.swing.JFrame {
     private void tbCTHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCTHDMouseClicked
         // TODO add your handling code here:
         int row = tbCTHD.getSelectedRow();
-//        lblId.setText(tbCTHD.getValueAt(row, 0).toString());
-        HoaDonViewModel hd = (HoaDonViewModel) tbCTHD.getValueAt(row, 1);
+        lblId.setText(tbCTHD.getValueAt(row, 0).toString());
+        HoaDon hd = (HoaDon) tbCTHD.getValueAt(row, 1);
         for (int i = 0; i < cbMaHD.getItemCount(); i++) {
-            HoaDonViewModel hdg = cbMaHD.getItemAt(i);
+            HoaDon hdg = cbMaHD.getItemAt(i);
             if (hdg.getMa().equals(hd.getMa())) {
                 cbMaHD.setSelectedIndex(i);
             }
         }
-        txtDonGia.setText(tbCTHD.getValueAt(row, 3).toString());
-        txtSoLuong.setText(tbCTHD.getValueAt(row, 2).toString());
+        ChiTietSanPham ct = (ChiTietSanPham) tbCTHD.getValueAt(row, 2);
+        for (int i = 0; i < cbCTSP.getItemCount(); i++) {
+            ChiTietSanPham ctsp = cbCTSP.getItemAt(i);
+            if (ctsp.getId().equals(ct.getId())) {
+                cbCTSP.setSelectedIndex(i);
+            }
+        }
+        txtDonGia.setText(tbCTHD.getValueAt(row, 4).toString());
+        txtSoLuong.setText(tbCTHD.getValueAt(row, 3).toString());
 
 
     }//GEN-LAST:event_tbCTHDMouseClicked
@@ -416,12 +446,14 @@ public class HoaDonCtForm extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInsert;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JComboBox<HoaDonViewModel> cbMaHD;
+    private javax.swing.JComboBox<ChiTietSanPham> cbCTSP;
+    private javax.swing.JComboBox<HoaDon> cbMaHD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

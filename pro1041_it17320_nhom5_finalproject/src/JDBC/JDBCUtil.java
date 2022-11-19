@@ -19,11 +19,14 @@ public class JDBCUtil {
 
     public static Connection getConnection() {
 
+
         if (JDBCUtil.conn == null) {
+
+        if (conn == null) {
 
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                String dbUser = "sa", dbPass = "123456", dbUrl = "jdbc:sqlserver://localhost:1433;databaseName = DuAn1_Nhom5";
+                String dbUser = "sa", dbPass = "123456", dbUrl = "jdbc:sqlserver://localhost:1433" + ";databaseName = DuAn1_Nhom5";
                 JDBCUtil.conn = DriverManager.getConnection(dbUrl, dbUser, dbPass);
                 System.out.println("ket noi thanh cong");
             } catch (ClassNotFoundException | SQLException ex) {

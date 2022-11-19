@@ -13,7 +13,7 @@ public class HoaDonChiTiet {
 
     private String id;
     private HoaDon hd;
-//    private ChiTietSanPham ctsp;
+    private ChiTietSanPham ctsp;
 //    private KhuyenMai km;
     private int soLuong;
     private double donGia;
@@ -22,8 +22,23 @@ public class HoaDonChiTiet {
     public HoaDonChiTiet() {
     }
 
+    public HoaDonChiTiet(HoaDon hd, ChiTietSanPham ctsp, int soLuong, double donGia) {
+        this.hd = hd;
+        this.ctsp = ctsp;
+        this.soLuong = soLuong;
+        this.donGia = donGia;
+    }
+
     public String getId() {
         return id;
+    }
+
+    public ChiTietSanPham getCtsp() {
+        return ctsp;
+    }
+
+    public void setCtsp(ChiTietSanPham ctsp) {
+        this.ctsp = ctsp;
     }
 
     public void setId(String id) {

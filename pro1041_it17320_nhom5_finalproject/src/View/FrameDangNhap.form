@@ -31,29 +31,6 @@
                       <Component id="lb_logo" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-<<<<<<< HEAD
-                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="txtUser" min="-2" pref="120" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtPass" max="32767" attributes="0"/>
-                                          <Component id="btnDangNhap" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                                      </Group>
-=======
                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="txtPass" min="-2" pref="120" max="-2" attributes="0"/>
@@ -68,7 +45,6 @@
                                       <Component id="lb_user" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
->>>>>>> 34d366f06746ea4d7a9abd373a985ccbaa6d105c
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
@@ -136,26 +112,16 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDangNhapActionPerformed"/>
       </Events>
     </Component>
-<<<<<<< HEAD
-    <Component class="javax.swing.JLabel" name="jLabel3">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
-=======
     <Component class="javax.swing.JLabel" name="lb_user">
     </Component>
     <Component class="javax.swing.JLabel" name="lb_pw">
->>>>>>> 34d366f06746ea4d7a9abd373a985ccbaa6d105c
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="text" type="java.lang.String" value="Qu&#xea;n m&#x1ead;t kh&#x1ea9;u?"/>
       </Properties>
     </Component>
-<<<<<<< HEAD
-    <Component class="javax.swing.JLabel" name="jLabel6">
-=======
     <Component class="javax.swing.JLabel" name="lb_logo">
->>>>>>> 34d366f06746ea4d7a9abd373a985ccbaa6d105c
     </Component>
   </SubComponents>
 </Form>

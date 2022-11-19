@@ -18,6 +18,7 @@ public class JDBCUtil {
     private static Connection conn;
 
     public static Connection getConnection() {
+
         if (conn == null) {
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -30,5 +31,4 @@ public class JDBCUtil {
         }
         return conn;
     }
-
 }

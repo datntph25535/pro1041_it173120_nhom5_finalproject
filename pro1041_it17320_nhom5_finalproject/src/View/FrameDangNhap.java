@@ -36,9 +36,9 @@ public class FrameDangNhap extends javax.swing.JFrame {
     }
 
     void setIcona() {
-        Icon user = new ImageIcon("C:\\Users\\Huy PC\\Documents\\GitHub\\pro1041_it173120_nhom5_finalproject\\pro1041_it17320_nhom5_finalproject\\src\\imageuser.png");
-        Icon pw = new ImageIcon("C:\\Users\\Huy PC\\Documents\\GitHub\\pro1041_it173120_nhom5_finalproject\\pro1041_it17320_nhom5_finalproject\\src\\image\\password.png");
-        Icon logo = new ImageIcon("C:\\Users\\Huy PC\\Documents\\GitHub\\pro1041_it173120_nhom5_finalproject\\pro1041_it17320_nhom5_finalproject\\src\\image\\logo.jpg");
+        Icon user = new ImageIcon("/F:/pro1041_it173120_nhom5_finalproject/pro1041_it17320_nhom5_finalproject/src/image/user.png");
+        Icon pw = new ImageIcon("/F:/pro1041_it173120_nhom5_finalproject/pro1041_it17320_nhom5_finalproject/src/image/password.png");
+        Icon logo = new ImageIcon("/F:/pro1041_it173120_nhom5_finalproject/pro1041_it17320_nhom5_finalproject/src/image/logo.jpg");
 
         lb_user.setIcon(user);
         lb_pw.setIcon(pw);
@@ -110,33 +110,11 @@ public class FrameDangNhap extends javax.swing.JFrame {
                         .addGap(133, 133, 133)
                         .addComponent(lb_logo))
                     .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
-                        .addGap(77, 77, 77)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel4))
-=======
                         .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> 34d366f06746ea4d7a9abd373a985ccbaa6d105c
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-<<<<<<< HEAD
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtPass)
-                                            .addComponent(btnDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                .addContainerGap(114, Short.MAX_VALUE))
-=======
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lb_pw)
                                         .addGap(18, 18, 18)
@@ -151,7 +129,6 @@ public class FrameDangNhap extends javax.swing.JFrame {
                                 .addComponent(jLabel5)
                                 .addComponent(btnDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(157, Short.MAX_VALUE))
->>>>>>> 34d366f06746ea4d7a9abd373a985ccbaa6d105c
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

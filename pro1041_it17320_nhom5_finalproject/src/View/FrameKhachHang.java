@@ -343,6 +343,7 @@ public class FrameKhachHang extends javax.swing.JFrame {
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
         if (searchMa(txt_ma.getText()) == true) {
             JOptionPane.showMessageDialog(this, "trùng mã");
+            return;
         } else {
             if (checkEmail()) {
                 KhachHang kh = this.addData();

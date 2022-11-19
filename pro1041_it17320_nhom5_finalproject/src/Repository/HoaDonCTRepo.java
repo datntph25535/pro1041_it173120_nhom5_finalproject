@@ -6,6 +6,7 @@
 package Repository;
 
 import JDBC.JDBCUtil;
+import Model.ChiTietSanPham;
 import Model.HoaDon;
 import Model.HoaDonChiTiet;
 import ViewModel.HoaDonCTViewModel;
@@ -25,7 +26,8 @@ public class HoaDonCTRepo {
         List<HoaDonCTViewModel> listHd = new ArrayList<>();
         try {
             Connection conn = JDBCUtil.getConnection();
-            String sql = "select hd.Ma as 'MaHD' ,SoLuong,DonGia from HoaDonChiTiet hdct join HoaDon hd on hd.Id=hdct.IdHD";
+            String sql = "select hd.Ma as 'Ma HD',ctsp.Id as'IdHDCT',SoLuong,DonGia from HoaDonChiTiet hdct join HoaDon hd on hd.Id=hdct.IdHD \n"
+                    + "join ChiTietSP ctsp on ctsp.Id=hdct.IdCTSP";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.execute();
             ResultSet rs = ps.getResultSet();
@@ -33,12 +35,15 @@ public class HoaDonCTRepo {
                 String ma = rs.getString("MaHD");
                 HoaDon hd = new HoaDon();
                 hd.setMa(ma);
-
+                String isct = rs.getString("IdCTSP");
+                ChiTietSanPham ctsp = new ChiTietSanPham();
+                ctsp.setId(isct);
                 int sl = rs.getInt("SoLuong");
                 double dgia = rs.getDouble("DonGia");
 //                double tienKM = rs.getDouble("TienKM");
                 HoaDonCTViewModel hdv = new HoaDonCTViewModel();
                 hdv.setHd(hd);
+                hdv.setCtsp(ctsp);
                 hdv.setSoLuong(sl);
                 hdv.setDonGia(dgia);
 //                hdv.setTienKM(tienKM);
@@ -56,10 +61,21 @@ public class HoaDonCTRepo {
         Integer kq = -1;
         try {
             Connection conn = JDBCUtil.getConnection();
-            String sql = "Insert into HoaDonChiTiet " + "(SoLuong,DonGia)" + " Values(?,?)";
+            String sql = "Insert into HoaDonChiTiet " + "(IdHD,IdCTSP,SoLuong,DonGia)" + " Values(?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, hdct.getSoLuong());
-            ps.setDouble(2, hdct.getDonGia());
+            String idhd = null;
+            if (hdct.getHd() != null) {
+                idhd = hdct.getHd().getId();
+            }
+            String idctSP = null;
+
+            if (hdct.getCtsp() != null) {
+                idctSP = hdct.getCtsp().getId();
+            }
+            ps.setString(1, idhd);
+            ps.setString(2, idctSP);
+            ps.setInt(3, hdct.getSoLuong());
+            ps.setDouble(4, hdct.getDonGia());
             kq = ps.executeUpdate();
             return kq;
         } catch (Exception e) {

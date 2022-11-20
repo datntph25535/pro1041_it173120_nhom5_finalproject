@@ -32,7 +32,7 @@ public class HoaDonCTRepo {
             ps.execute();
             ResultSet rs = ps.getResultSet();
             while (rs.next()) {
-                String ma = rs.getString("MaHD");
+                String ma = rs.getString("Ma HD");
                 HoaDon hd = new HoaDon();
                 hd.setMa(ma);
                 String isct = rs.getString("IdCTSP");

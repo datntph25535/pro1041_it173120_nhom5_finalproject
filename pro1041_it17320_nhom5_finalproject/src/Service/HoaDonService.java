@@ -24,7 +24,8 @@ public class HoaDonService implements IHoaDonS {
     }
     
     @Override
-    public List<HoaDonViewModel> getAll() {
+
+    public List<HoaDon> getAll() {
         return this.repo.all();
     }
     

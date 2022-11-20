@@ -36,7 +36,8 @@ public class HoaDonForm extends javax.swing.JFrame {
         defaultTableModel = new DefaultTableModel();
         defaultTableModel = (DefaultTableModel) tbHoaDon.getModel();
         defaultTableModel.setRowCount(0);
-        for (HoaDonViewModel hdv : ser.getAll()) {
+
+        for (HoaDon hdv : ser.getAll()) {
             defaultTableModel.addRow(new Object[]{
                 hdv.getMa(), hdv.getNgayThanhToan(), hdv.getNgayNhan(), hdv.getNgayTao(), hdv.getDiaChi(), hdv.getSdt(), hdv.getTinhTrang()
             });
@@ -363,13 +364,13 @@ public class HoaDonForm extends javax.swing.JFrame {
         if (hd == null) {
             return;
         }
-        if (ser.updateHD(hd, hd.getMa())<=-1) {
-        JOptionPane.showMessageDialog(this, "cập nhật thất bại");
-           return;
-        }else{
-        JOptionPane.showMessageDialog(this, "Cập nhật thành công");
+        if (ser.updateHD(hd, hd.getMa()) <= -1) {
+            JOptionPane.showMessageDialog(this, "cập nhật thất bại");
+            return;
+        } else {
+            JOptionPane.showMessageDialog(this, "Cập nhật thành công");
         }
- 
+
         loadTable();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -384,12 +385,12 @@ public class HoaDonForm extends javax.swing.JFrame {
         if (choice != JOptionPane.YES_OPTION) {
             return;
         }
-        Integer kq=ser.deleteHD(tbHoaDon.getValueAt(row, 0).toString());
-        if (kq<=-1) {
+        Integer kq = ser.deleteHD(tbHoaDon.getValueAt(row, 0).toString());
+        if (kq <= -1) {
             JOptionPane.showMessageDialog(this, "Xoá thất bại");
             return;
-        }else{
-        JOptionPane.showMessageDialog(this, "Xoá thành công");
+        } else {
+            JOptionPane.showMessageDialog(this, "Xoá thành công");
         }
         loadTable();
     }//GEN-LAST:event_btnDeleteActionPerformed

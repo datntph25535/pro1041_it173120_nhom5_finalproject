@@ -26,7 +26,7 @@ public class HoaDonCTRepo {
         List<HoaDonCTViewModel> listHd = new ArrayList<>();
         try {
             Connection conn = JDBCUtil.getConnection();
-            String sql = "select hd.Ma as 'Ma HD',ctsp.Id as'IdHDCT',SoLuong,DonGia from HoaDonChiTiet hdct join HoaDon hd on hd.Id=hdct.IdHD \n"
+            String sql = "select hd.Ma as 'Ma HD',ctsp.Id as'IdCTSP',SoLuong,DonGia from HoaDonChiTiet hdct join HoaDon hd on hd.Id=hdct.IdHD \n"
                     + "join ChiTietSP ctsp on ctsp.Id=hdct.IdCTSP";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.execute();

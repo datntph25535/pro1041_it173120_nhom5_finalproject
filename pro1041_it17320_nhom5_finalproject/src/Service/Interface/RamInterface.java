@@ -5,19 +5,21 @@
  */
 package Service.Interface;
 
-import Model.KhuyenMai;
+import Model.Ram;
 import java.util.ArrayList;
 
 /**
  *
- * @author DELL
+ * @author Admin
  */
-public interface KhuyenMaiInterface {
-    ArrayList<KhuyenMai> getListKM();
+public interface RamInterface {
     
-    void insert(KhuyenMai km);
+    ArrayList<Ram> getAll();
     
-    void update(String id,KhuyenMai km);
+    void insert(Ram ram);
     
-    void delete(String id);
+    void update(Ram ram, String ma);
+    
+    void delete(String ma);
+    
 }

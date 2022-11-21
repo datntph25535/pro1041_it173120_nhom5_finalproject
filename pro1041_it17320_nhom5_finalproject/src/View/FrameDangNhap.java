@@ -5,9 +5,7 @@
  */
 package View;
 
-import Model.Account;
-import Repository.DangNhapRepo;
-import Service.DangNhapService;
+
 import java.awt.Color;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -23,9 +21,7 @@ public class FrameDangNhap extends javax.swing.JFrame {
     /**
      * Creates new form FrameDangNhap
      */
-    DangNhapService qldn = new DangNhapService();
-    DefaultTableModel dftb = new DefaultTableModel();
-    DangNhapRepo dnr = new DangNhapRepo();
+
 
     public FrameDangNhap() {
         initComponents();
@@ -159,21 +155,21 @@ public class FrameDangNhap extends javax.swing.JFrame {
 
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
         // TODO add your handling code here:
-        if (check()) {
-            String user = txtUser.getText();
-            String pass = txtPass.getText();
-            Account account = qldn.getAccount(user, pass);
-            if (account == null) {
-                JOptionPane.showMessageDialog(this, "sai tài khoản hoặc mật khẩu!");
-
-            } else if (account.getRole().equals("nhanvien")) {
-                JOptionPane.showMessageDialog(this, "đăng nhập với tư cách nhân viên");
-
-            } else {
-                JOptionPane.showMessageDialog(this, "đăng nhập với tư cách quản lý");
-            }
-
-        }
+//        if (check()) {
+//            String user = txtUser.getText();
+//            String pass = txtPass.getText();
+//            Account account = qldn.getAccount(user, pass);
+//            if (account == null) {
+//                JOptionPane.showMessageDialog(this, "sai tài khoản hoặc mật khẩu!");
+//
+//            } else if (account.getRole().equals("nhanvien")) {
+//                JOptionPane.showMessageDialog(this, "đăng nhập với tư cách nhân viên");
+//
+//            } else {
+//                JOptionPane.showMessageDialog(this, "đăng nhập với tư cách quản lý");
+//            }
+//
+//        }
     }//GEN-LAST:event_btnDangNhapActionPerformed
 
     private void btnDangNhapMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDangNhapMouseEntered

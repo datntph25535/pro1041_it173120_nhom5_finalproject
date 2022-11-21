@@ -7,20 +7,23 @@ package Model;
 
 /**
  *
- * @author PC
+ * @author Admin
  */
-public class ChucVu {
+public class Ram {
+    
     private String id;
     private String ma;
-    private String ten;
+    private String loaiRam;
+    private double dungLuong;
 
-    public ChucVu() {
+    public Ram() {
     }
 
-    public ChucVu(String id, String ma, String ten) {
+    public Ram(String id, String ma, String loaiRam, double dungLuong) {
         this.id = id;
         this.ma = ma;
-        this.ten = ten;
+        this.loaiRam = loaiRam;
+        this.dungLuong = dungLuong;
     }
 
     public String getId() {
@@ -39,18 +42,29 @@ public class ChucVu {
         this.ma = ma;
     }
 
-    public String getTen() {
-        return ten;
+    public String getLoaiRam() {
+        return loaiRam;
     }
 
-    public void setTen(String ten) {
-        this.ten = ten;
+    public void setLoaiRam(String loaiRam) {
+        this.loaiRam = loaiRam;
+    }
+
+    public double getDungLuong() {
+        return dungLuong;
+    }
+
+    public void setDungLuong(double dungLuong) {
+        this.dungLuong = dungLuong;
     }
 
     @Override
     public String toString() {
-        return ma;
+        return ""+dungLuong;
     }
+
+    
+    
     
     
 }

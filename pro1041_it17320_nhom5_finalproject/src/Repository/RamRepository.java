@@ -5,13 +5,13 @@
  */
 package Repository;
 
-import Model.LinhKien;
-import java.sql.Connection;
-import java.util.ArrayList;
+import Model.Ram;
 import JDBC.JDBCUtil;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,67 +19,70 @@ import java.util.logging.Logger;
  *
  * @author Admin
  */
-public class LinhKienRepo {
-
-    public ArrayList<LinhKien> getAll() {
-        ArrayList<LinhKien> list = new ArrayList<>();
+public class RamRepository {
+    
+    public ArrayList<Ram> getAll(){
+        ArrayList<Ram> list = new ArrayList<>();
         try {
             Connection conn = JDBCUtil.getConnection();
-            String sql = "select * from LinhKien";
+            String sql = "select * from Ram";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.execute();
             ResultSet rs = ps.getResultSet();
-            while (rs.next()) {
+            while (rs.next()) {                
                 String id = rs.getString(1);
                 String ma = rs.getString(2);
-                String ten = rs.getString(3);
-                LinhKien lk = new LinhKien(id, ma, ten);
-                list.add(lk);
+                String loaiRam = rs.getString(3);
+                double dungLuong = rs.getDouble(4);
+                Ram ram = new Ram(id, ma, loaiRam, dungLuong);
+                list.add(ram);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(LinhKienRepo.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
         return list;
     }
-
-    public void insert(LinhKien lk) {
+    
+    public void insert(Ram ram){
         try {
             Connection conn = JDBCUtil.getConnection();
-            String sql = "insert into LinhKien (Ma, Ten) values(?,?)";
+            String sql = "insert into Ram (Ma, LoaiRam, DungLuong) values(?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, lk.getMaLinhKien());
-            ps.setString(2, lk.getTenLinhKien());
+            ps.setString(1, ram.getMa());
+            ps.setString(2, ram.getLoaiRam());
+            ps.setDouble(3, ram.getDungLuong());
             ps.execute();
         } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
+            ex.printStackTrace();
         }
+        
     }
-    
-
-    public void update(LinhKien lk, String ma) {
+    public void update(Ram ram, String ma){
         try {
             Connection conn = JDBCUtil.getConnection();
-            String sql = "update LinhKien set Ma = ?, Ten = ? where Ma = ?";
+            String sql = "update Ram set Ma = ?, LoaiRam = ?, DungLuong = ? where Ma = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, lk.getMaLinhKien());
-            ps.setString(2, lk.getTenLinhKien());
-            ps.setString(3, ma);
+            ps.setString(1, ram.getMa());
+            ps.setString(2, ram.getLoaiRam());
+            ps.setDouble(3, ram.getDungLuong());
+            ps.setString(4, ma);
             ps.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(LinhKienRepo.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
+        
     }
-
-    public void delete(String ma) {
+    public void delete(String ma){
         try {
             Connection conn = JDBCUtil.getConnection();
-            String sql = "delete from LinhKien where Ma = ?";
+            String sql = "delete from Ram where Ma = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, ma);
             ps.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(LinhKienRepo.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
+        
     }
-
+    
 }

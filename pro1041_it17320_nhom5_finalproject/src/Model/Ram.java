@@ -9,8 +9,10 @@ package Model;
  *
  * @author Admin
  */
+
 public class Ram {
-    
+
+
     private String id;
     private String ma;
     private String loaiRam;
@@ -62,9 +64,4 @@ public class Ram {
     public String toString() {
         return ""+dungLuong;
     }
-
-    
-    
-    
-    
 }

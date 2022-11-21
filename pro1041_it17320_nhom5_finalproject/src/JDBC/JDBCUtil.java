@@ -14,21 +14,42 @@ import java.sql.SQLException;
  * @author PC
  */
 public class JDBCUtil {
+public static final String HOSTNAME = "localhost";
 
-    private static Connection conn;
+    public static final String PORT = "1433";
+
+    public static final String DBNAME = "DuAn1_Nhom5";
+
+    public static final String USERNAME = "sa";
+
+    public static final String PASSWORD = "123456";
 
     public static Connection getConnection() {
-        if (conn == null) {
-            try {
-                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-                String dbUser = "sa", dbPass = "123456", dbUrl = "jdbc:sqlserver://localhost:1433" + ";databaseName = DuAn1_Nhom5";
-                JDBCUtil.conn = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-                System.out.println("ket noi thanh cong");
-            } catch (ClassNotFoundException | SQLException ex) {
-                ex.printStackTrace();
-            }
-        }
-        return conn;
-    }
 
+        // Create a variable for the connection string.
+        String connectionUrl = "jdbc:sqlserver://" + HOSTNAME + ":" + PORT + ";"
+                + "databaseName=" + DBNAME;
+
+        try {
+
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
+            return DriverManager.getConnection(connectionUrl, USERNAME, PASSWORD);
+
+        } // Handle any errors that may have occurred.
+        catch (ClassNotFoundException | SQLException e) {
+
+            e.printStackTrace(System.out);
+
+        }
+
+        return null;
+    }
+    
+
+    public static void main(String[] args) {
+
+        System.out.println(getConnection());
+
+    }
 }

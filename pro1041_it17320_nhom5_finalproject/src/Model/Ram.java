@@ -62,6 +62,6 @@ public class Ram {
 
     @Override
     public String toString() {
-        return ""+dungLuong;
+        return "  "+dungLuong;
     }
 }

@@ -8,7 +8,6 @@ package View;
 import Model.HoaDon;
 import Service.HoaDonService;
 import Service.Interface.IHoaDonS;
-import ViewModel.HoaDonViewModel;
 import java.sql.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -39,7 +38,7 @@ public class HoaDonForm extends javax.swing.JFrame {
 
         for (HoaDon hdv : ser.getAll()) {
             defaultTableModel.addRow(new Object[]{
-                hdv.getMa(), hdv.getNgayThanhToan(), hdv.getNgayNhan(), hdv.getNgayTao(), hdv.getDiaChi(), hdv.getSdt(), hdv.getTinhTrang()
+                hdv.getMa(), hdv.getNgayThanhToan(), hdv.getNgayNhan(), hdv.getNgayTao(), hdv.getSdt(), hdv.getTrangThai()
             });
         }
     }
@@ -51,21 +50,20 @@ public class HoaDonForm extends javax.swing.JFrame {
         String ngaynhan = txtNgayNhan.getText().trim();
         String ngaytao = txtNgayTao.getText().trim();
         String sdt = txtSDT.getText().trim();
-        String dchi = txtDiaChi.getText().trim();
-        String tinhTrag = cbTinhTrang.getSelectedItem().toString();
+        String trangthai = cbTinhTrang.getSelectedItem().toString();
         if (ma.length() == 0
                 || ngaytt.length() == 0
                 || ngaynhan.length() == 0
                 || ngaytao.length() == 0
                 || sdt.length() == 0
-                || dchi.length() == 0) {
+                )
+        {
             JOptionPane.showMessageDialog(this, "Không để trống");
             return null;
         }
         Date date = null;
         try {
             date = Date.valueOf(ngaytt);
-//        return null;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Nhập lại ngày");
             return null;
@@ -73,7 +71,6 @@ public class HoaDonForm extends javax.swing.JFrame {
         Date ngayn = null;
         try {
             ngayn = Date.valueOf(ngaynhan);
-//        return null;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Nhập lại ngày");
             return null;
@@ -81,7 +78,6 @@ public class HoaDonForm extends javax.swing.JFrame {
         Date ngayt = null;
         try {
             ngayt = Date.valueOf(ngaytao);
-//        return null;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Nhập lại ngày");
             return null;
@@ -96,9 +92,9 @@ public class HoaDonForm extends javax.swing.JFrame {
         hoaDon.setNgayThanhToan(date);
         hoaDon.setNgayNhan(ngayn);
         hoaDon.setNgayTao(ngayt);
-        hoaDon.setDiaChi(dchi);
+//        hoaDon.setDiaChi(dchi);
         hoaDon.setSdt(sdt);
-        hoaDon.setTinhTrang(tinhTrag);
+        hoaDon.setTrangThai(trangthai);
         return hoaDon;
     }
 
@@ -118,14 +114,12 @@ public class HoaDonForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lblId = new javax.swing.JLabel();
         txtMa = new javax.swing.JTextField();
         txtNgayTao = new javax.swing.JTextField();
         txtNgayTT = new javax.swing.JTextField();
         txtNgayNhan = new javax.swing.JTextField();
-        txtDiaChi = new javax.swing.JTextField();
         txtSDT = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         cbTinhTrang = new javax.swing.JComboBox<>();
@@ -154,13 +148,11 @@ public class HoaDonForm extends javax.swing.JFrame {
 
         jLabel6.setText("Ngày nhận");
 
-        jLabel7.setText("Địa chỉ");
-
         jLabel8.setText("SDT");
 
         lblId.setText("_");
 
-        jLabel10.setText("Tình trạng");
+        jLabel10.setText("Trạng Thái");
 
         cbTinhTrang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đã thanh toán", "Chưa thanh toán" }));
 
@@ -181,7 +173,6 @@ public class HoaDonForm extends javax.swing.JFrame {
                                 .addComponent(jLabel3)))
                         .addComponent(jLabel4))
                     .addComponent(jLabel6)
-                    .addComponent(jLabel7)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,7 +181,6 @@ public class HoaDonForm extends javax.swing.JFrame {
                     .addComponent(txtNgayTT)
                     .addComponent(txtNgayNhan)
                     .addComponent(txtNgayTao)
-                    .addComponent(txtDiaChi)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,11 +211,7 @@ public class HoaDonForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNgayNhan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
@@ -240,13 +226,13 @@ public class HoaDonForm extends javax.swing.JFrame {
 
         tbHoaDon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã", "Ngày Thanh Toán", "Ngày Nhận", "Ngày Tạo", "Địa chỉ", "SĐT", "Tình Trạng"
+                "Mã", "Ngày Thanh Toán", "Ngày Nhận", "Ngày Tạo", "SDT", "Trạng Thái"
             }
         ));
         tbHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -402,9 +388,8 @@ public class HoaDonForm extends javax.swing.JFrame {
         txtNgayTT.setText(tbHoaDon.getValueAt(row, 1).toString());
         txtNgayNhan.setText(tbHoaDon.getValueAt(row, 2).toString());
         txtNgayTao.setText(tbHoaDon.getValueAt(row, 3).toString());
-        txtDiaChi.setText(tbHoaDon.getValueAt(row, 4).toString());
-        txtSDT.setText(tbHoaDon.getValueAt(row, 5).toString());
-        cbTinhTrang.setSelectedItem(tbHoaDon.getValueAt(row, 6).toString());
+        txtSDT.setText(tbHoaDon.getValueAt(row, 4).toString());
+        cbTinhTrang.setSelectedItem(tbHoaDon.getValueAt(row, 5).toString());
     }//GEN-LAST:event_tbHoaDonMouseClicked
 
     /**
@@ -455,14 +440,12 @@ public class HoaDonForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblId;
     private javax.swing.JTable tbHoaDon;
-    private javax.swing.JTextField txtDiaChi;
     private javax.swing.JTextField txtMa;
     private javax.swing.JTextField txtNgayNhan;
     private javax.swing.JTextField txtNgayTT;

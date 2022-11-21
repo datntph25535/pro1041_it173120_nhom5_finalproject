@@ -19,21 +19,21 @@ public class HoaDonViewModel {
     private Date ngayNhan;
     private Date ngayTao;
     private String diaChi;
-    private String sdt;
-    private String tinhTrang;
+    private double thanhtien;
+    private String trangThai;
 
     public HoaDonViewModel() {
     }
 
-    public HoaDonViewModel(String id, String ma, Date ngayThanhToan, Date ngayNhan, Date ngayTao, String diaChi, String sdt, String tinhTrang) {
+    public HoaDonViewModel(String id, String ma, Date ngayThanhToan, Date ngayNhan, Date ngayTao, String diaChi, double thanhtien, String trangThai) {
         this.id = id;
         this.ma = ma;
         this.ngayThanhToan = ngayThanhToan;
         this.ngayNhan = ngayNhan;
         this.ngayTao = ngayTao;
         this.diaChi = diaChi;
-        this.sdt = sdt;
-        this.tinhTrang = tinhTrang;
+        this.thanhtien = thanhtien;
+        this.trangThai = trangThai;
     }
 
     public String getId() {
@@ -84,25 +84,20 @@ public class HoaDonViewModel {
         this.diaChi = diaChi;
     }
 
-    public String getSdt() {
-        return sdt;
+    public double getThanhtien() {
+        return thanhtien;
     }
 
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
+    public void setThanhtien(double thanhtien) {
+        this.thanhtien = thanhtien;
     }
 
-    public String getTinhTrang() {
-        return tinhTrang;
+    public String getTrangThai() {
+        return trangThai;
     }
 
-    public void setTinhTrang(String tinhTrang) {
-        this.tinhTrang = tinhTrang;
-    }
-
-    @Override
-    public String toString() {
-        return  ma ;
+    public void setTrangThai(String trangThai) {
+        this.trangThai = trangThai;
     }
 
 }

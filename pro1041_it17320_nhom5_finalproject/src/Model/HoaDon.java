@@ -18,25 +18,24 @@ public class HoaDon {
     private Date ngayThanhToan;
     private Date ngayNhan;
     private Date ngayTao;
-    private String diaChi;
+    private double thanhTien;
     private String sdt;
-    private String tinhTrang;
+    private String trangThai;
 //    private NhanVien nv;
-//    private PhieuBH bh;
 //    private KhachHang kh;
 
     public HoaDon() {
     }
 
-    public HoaDon(String id, String ma, Date ngayThanhToan, Date ngayNhan, Date ngayTao, String diaChi, String sdt, String tinhTrang) {
+    public HoaDon(String id, String ma, Date ngayThanhToan, Date ngayNhan, Date ngayTao, double thanhTien, String sdt, String trangThai) {
         this.id = id;
         this.ma = ma;
         this.ngayThanhToan = ngayThanhToan;
         this.ngayNhan = ngayNhan;
         this.ngayTao = ngayTao;
-        this.diaChi = diaChi;
+        this.thanhTien = thanhTien;
         this.sdt = sdt;
-        this.tinhTrang = tinhTrang;
+        this.trangThai = trangThai;
     }
 
     public String getId() {
@@ -79,12 +78,12 @@ public class HoaDon {
         this.ngayTao = ngayTao;
     }
 
-    public String getDiaChi() {
-        return diaChi;
+    public double getThanhTien() {
+        return thanhTien;
     }
 
-    public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
+    public void setThanhTien(double thanhTien) {
+        this.thanhTien = thanhTien;
     }
 
     public String getSdt() {
@@ -95,17 +94,12 @@ public class HoaDon {
         this.sdt = sdt;
     }
 
-    public String getTinhTrang() {
-        return tinhTrang;
+    public String getTrangThai() {
+        return trangThai;
     }
 
-    public void setTinhTrang(String tinhTrang) {
-        this.tinhTrang = tinhTrang;
-    }
-
-    @Override
-    public String toString() {
-        return  ma ;
+    public void setTrangThai(String trangThai) {
+        this.trangThai = trangThai;
     }
 
 }

@@ -5,18 +5,10 @@
  */
 package Service.Interface;
 
-import Model.Account;
-
-import Repository.DangNhapRepo;
-
 /**
  *
  * @author PC
  */
-public interface DangNhapInterface {
-
-    Account getAccount(String u, String p);
-
-
-
+public interface ChucVuInterface {
+    
 }

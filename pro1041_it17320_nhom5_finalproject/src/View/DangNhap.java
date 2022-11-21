@@ -3,20 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Service.Interface;
-
-import Model.Account;
-
-import Repository.DangNhapRepo;
+package View;
 
 /**
  *
  * @author PC
  */
-public interface DangNhapInterface {
-
-    Account getAccount(String u, String p);
-
-
-
+public class DangNhap {
+    
 }

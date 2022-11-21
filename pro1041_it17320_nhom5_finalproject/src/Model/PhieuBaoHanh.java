@@ -14,11 +14,11 @@ import java.util.Date;
 public class PhieuBaoHanh {
     private String id;
     private String ma;
-    private Date ngayBH;
     private Date ngayMuaHang;
-    private String diaChi;
+    private Date ngayBH;
     private Date thoiGianBH;
-    private String tenNguoiNhan;
+    private String tenKH;
+    private hdct hdct;
 
     public PhieuBaoHanh() {
     }

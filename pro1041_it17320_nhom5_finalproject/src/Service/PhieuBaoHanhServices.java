@@ -6,7 +6,7 @@ package Service;
 
 import Model.PhieuBaoHanh;
 import Repository.BaoHanhRepo;
-import Service.Interface.PhieuBaoHanhInterface;
+import Service.Interface.BaoHanhInterface;
 import ViewModel.PhieuBaoHanhViewModel;
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Administrator
  */
-public class PhieuBaoHanhServices implements PhieuBaoHanhInterface {
+public class PhieuBaoHanhServices implements BaoHanhInterface {
 
     private final BaoHanhRepo bhRepo = new BaoHanhRepo();
 
